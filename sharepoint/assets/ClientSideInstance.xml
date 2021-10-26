@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="OpenA11Y"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="95175994-a6b4-4ac4-be05-1c9700c68106"
+        Properties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </ClientSideComponentInstance>
+</Elements>
