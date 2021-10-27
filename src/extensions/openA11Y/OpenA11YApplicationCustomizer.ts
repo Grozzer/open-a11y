@@ -1,7 +1,9 @@
 import { override } from '@microsoft/decorators';
 import { Log } from '@microsoft/sp-core-library';
 import {
-  BaseApplicationCustomizer
+  BaseApplicationCustomizer,
+  PlaceholderContent,
+  PlaceholderName
 } from '@microsoft/sp-application-base';
 import { Dialog } from '@microsoft/sp-dialog';
 
@@ -25,15 +27,22 @@ export default class OpenA11YApplicationCustomizer
 
   @override
   public onInit(): Promise<void> {
-    Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
-
-    let message: string = this.properties.testMessage;
-    if (!message) {
-      message = '(No properties were provided.)';
-    }
-
-    Dialog.alert(`Hello from ${strings.Title}:\n\n${message}`);
+    Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);    
 
     return Promise.resolve();
+  }
+
+  /**
+  * Add main component & reload previous settings
+  */
+  public reloadAccessibilityHandler(): void {
+    
+  }
+
+  /**
+  * Create the access button for the settings panel
+  */
+  private createAccessButton(): void {
+
   }
 }
