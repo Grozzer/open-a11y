@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://cgrosberg.sharepoint.com/_layouts/15/workbench.aspx",
       "customActions": {
         "95175994-a6b4-4ac4-be05-1c9700c68106": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -15,7 +15,7 @@
       }
     },
     "openA11Y": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://cgrosberg.sharepoint.com/_layouts/15/workbench.aspx",
       "customActions": {
         "95175994-a6b4-4ac4-be05-1c9700c68106": {
           "location": "ClientSideExtension.ApplicationCustomizer",
