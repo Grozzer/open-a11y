@@ -1,10 +1,10 @@
-# open-a-11-y
+# open-a11y
 
 ## Summary
 
-Short summary on functionality and used technologies.
+**Open a11y** is designed to provide expanded accessibility functionality to Microsoft SharePoint Online. This is done through the SPFx Application Customiser.
 
-[picture of the solution in action, if possible]
+The aim of a11y is to provide an enhanced experience for those with different needs, be they disabilities or impairments.
 
 ## Used SharePoint Framework Version
 
