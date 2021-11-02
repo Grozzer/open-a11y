@@ -4,9 +4,9 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://cgrosberg.sharepoint.com/_layouts/15/workbench.aspx",
+      "pageUrl": "https://andrewbuckinghamwaterstons.sharepoint.com/_layouts/15/workbench.aspx",
       "customActions": {
-        "95175994-a6b4-4ac4-be05-1c9700c68106": {
+        "8efcb895-8821-4679-aadb-707f9df9b8f9": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "testMessage": "Test message"
@@ -15,9 +15,9 @@
       }
     },
     "openA11Y": {
-      "pageUrl": "https://cgrosberg.sharepoint.com/_layouts/15/workbench.aspx",
+      "pageUrl": "https://andrewbuckinghamwaterstons.sharepoint.com/_layouts/15/workbench.aspx",
       "customActions": {
-        "95175994-a6b4-4ac4-be05-1c9700c68106": {
+        "8efcb895-8821-4679-aadb-707f9df9b8f9": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "testMessage": "Test message"
@@ -25,5 +25,6 @@
         }
       }
     }
-  }
+  },
+  "initialPage": "https://andrewbuckinghamwaterstons.sharepoint.com/_layouts/15/workbench.aspx"
 }
