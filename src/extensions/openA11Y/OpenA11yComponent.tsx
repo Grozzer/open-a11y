@@ -1,7 +1,7 @@
 import { Stack } from '@fluentui/react';
 import React from 'react';
-import { OpenA11yColourComponent } from './OpenA11yColourComponent';
-import { OpenA11yFontComponent } from './OpenA11yFontComponent';
+import { ColourComponent } from './modifiers/ColourComponent';
+import { FontComponent } from './modifiers/FontComponent';
 
 const OpenA11yComponent: React.FC = () => {
   const docBody = document.querySelector('body');
@@ -11,8 +11,8 @@ const OpenA11yComponent: React.FC = () => {
 
   return (
     <Stack>
-      <OpenA11yFontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
-      <OpenA11yColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
+      <FontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
+      <ColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
     </Stack>
   );
 };

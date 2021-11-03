@@ -3,7 +3,7 @@ require('./Style-Fonts.module.scss');
 import { Stack } from '@fluentui/react';
 import { DefaultButton } from '@fluentui/react/lib/Button';
 import React from 'react';
-import { IOpenA11yBodyClassModifierComponent } from './IOpenAllyBodyClassModifierComponent';
+import { IOpenA11yBodyClassModifierComponent } from '../IOpenAllyBodyClassModifierComponent';
 
 // TODO: load dynamically?
 const fonts = [
@@ -13,8 +13,8 @@ const fonts = [
   { name: 'Verdana', value: 'access_font_verdana' },
 ];
 
-const OpenA11yFontComponent: React.FC<IOpenA11yBodyClassModifierComponent> = ({ removeClasses, addClass }) => {
-  const changeFont = (fontValue) => {
+const FontComponent: React.FC<IOpenA11yBodyClassModifierComponent> = ({ removeClasses, addClass }) => {
+  const changeFont = (fontValue: string) => {
     removeClasses(fonts.map((f) => f.value));
     addClass(fontValue);
   };
@@ -28,4 +28,4 @@ const OpenA11yFontComponent: React.FC<IOpenA11yBodyClassModifierComponent> = ({ 
   );
 };
 
-export { OpenA11yFontComponent };
+export { FontComponent };
