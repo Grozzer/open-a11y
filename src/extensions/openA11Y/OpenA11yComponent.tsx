@@ -1,4 +1,4 @@
-import { DefaultButton, PrimaryButton, Stack } from '@fluentui/react';
+import { DefaultButton, IconButton, IStackTokens, PrimaryButton, Stack } from '@fluentui/react';
 import { useBoolean } from '@fluentui/react-hooks';
 import { ContextualMenu } from '@fluentui/react/lib/ContextualMenu';
 import { Dialog, DialogFooter, DialogType } from '@fluentui/react/lib/Dialog';
@@ -13,11 +13,18 @@ const dialogContentProps = {
   subText: 'Would you like to enable a more accessible view?',
 };
 
+const dialogStyles = { main: { maxWidth: 800 } };
+
 const dragOptions = {
   moveMenuItemText: 'Move',
   closeMenuItemText: 'Close',
   menu: ContextualMenu,
   keepInBounds: true,
+};
+
+const gapTokens: IStackTokens = {
+  childrenGap: 10,
+  padding: 10,
 };
 
 const OpenA11yComponent: React.FC = () => {
@@ -31,8 +38,14 @@ const OpenA11yComponent: React.FC = () => {
   return (
     <Stack>
       <PrimaryButton text="Accessibility" onClick={toggleHideDialog} />
-      <Dialog hidden={hideDialog} onDismiss={toggleHideDialog} dialogContentProps={dialogContentProps} modalProps={{ dragOptions }}>
-        <Stack>
+      <IconButton iconProps={{ iconName: 'Contrast' }} title="Accessibility" ariaLabel="Accessibility" onClick={toggleHideDialog} />
+      <Dialog
+        hidden={hideDialog}
+        onDismiss={toggleHideDialog}
+        dialogContentProps={dialogContentProps}
+        modalProps={{ dragOptions, styles: dialogStyles }}
+      >
+        <Stack tokens={gapTokens}>
           <FontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
           <ColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
         </Stack>

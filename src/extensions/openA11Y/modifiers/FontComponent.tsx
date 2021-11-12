@@ -1,6 +1,6 @@
 require('./Style-Fonts.module.scss');
 
-import { Stack } from '@fluentui/react';
+import { Label, Stack } from '@fluentui/react';
 import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
 import React from 'react';
 import { IOpenA11yBodyClassModifierComponent } from '../IOpenAllyBodyClassModifierComponent';
@@ -30,15 +30,19 @@ const FontComponent: React.FC<IOpenA11yBodyClassModifierComponent> = ({ removeCl
   };
 
   return (
-    <Stack horizontal>
-      {fonts.map((f) => (selected === f ? <PrimaryButton text={f.name} /> : <DefaultButton text={f.name} onClick={() => changeFont(f)} />))}
-      <DefaultButton
-        text="Normal"
-        onClick={() => {
-          removeAll();
-          setSelected(undefined);
-        }}
-      />
+    <Stack>
+      <Label>Font</Label>
+      <Stack horizontal wrap>
+        {fonts.map((f) => (selected === f ? <PrimaryButton text={f.name} /> : <DefaultButton text={f.name} onClick={() => changeFont(f)} />))}
+
+        <DefaultButton
+          text="Normal"
+          onClick={() => {
+            removeAll();
+            setSelected(undefined);
+          }}
+        />
+      </Stack>
     </Stack>
   );
 };
