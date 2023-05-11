@@ -1,6 +1,6 @@
 require('./Style-Fonts.module.scss');
 
-import { Label, Stack } from '@fluentui/react';
+import { Label, Stack, Text } from '@fluentui/react';
 import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
 import React from 'react';
 import { IOpenA11yBodyClassModifierComponent } from '../IOpenAllyBodyClassModifierComponent';
@@ -31,7 +31,8 @@ const FontComponent: React.FC<IOpenA11yBodyClassModifierComponent> = ({ removeCl
 
   return (
     <Stack>
-      <Label>Font</Label>
+      <Label >Replace Font</Label>
+      <Text>Choose a pre-selected font from the list below. This will replace the default font within SharePoint.</Text>
       <Stack horizontal wrap>
         {fonts.map((f) => (selected === f ? <PrimaryButton text={f.name} /> : <DefaultButton text={f.name} onClick={() => changeFont(f)} />))}
 
