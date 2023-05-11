@@ -7,7 +7,7 @@ if (process.argv.indexOf("dist") !== -1) {
 }
 
 const path = require("path");
-const gulp = require("gulp");
+const gulp = require("gulp");     
 const build = require("@microsoft/sp-build-web");
 const gulpSequence = require("gulp-sequence");
 
@@ -19,6 +19,8 @@ build.addSuppression(
 gulp.task("dist", gulpSequence("clean", "bundle", "package-solution"));
 // Create clean development package
 gulp.task("dev", gulpSequence("clean", "bundle", "package-solution"));
+
+gulp.task("serve", gulpSequence("clean","build","bundle","package-solution","serve-deprecated"))
 
 /**
  * Custom Framework Specific gulp tasks
