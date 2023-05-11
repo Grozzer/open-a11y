@@ -1,5 +1,5 @@
-import { DefaultButton, IconButton, IStackTokens, PrimaryButton, Stack } from '@fluentui/react';
-import { useBoolean } from '@fluentui/react-hooks';
+import { DefaultButton, IconButton, IStackTokens, IButtonStyles, PrimaryButton, Stack, Popup, Modal, DefaultPalette, FontWeights, getTheme, mergeStyleSets } from '@fluentui/react';
+import { useBoolean, useId } from '@fluentui/react-hooks';
 import { ContextualMenu } from '@fluentui/react/lib/ContextualMenu';
 import { Dialog, DialogFooter, DialogType } from '@fluentui/react/lib/Dialog';
 import React from 'react';
@@ -27,6 +27,8 @@ const gapTokens: IStackTokens = {
   padding: 10,
 };
 
+
+
 const OpenA11yComponent: React.FC = () => {
   const [hideDialog, { toggle: toggleHideDialog }] = useBoolean(true);
 
@@ -35,26 +37,70 @@ const OpenA11yComponent: React.FC = () => {
   const addClass = (elementClass: string) => docBody.classList.add(elementClass);
   const toggleClass = (elementClass: string) => docBody.classList.toggle(elementClass);
 
+  const titleId = useId('title');
+
   return (
     <Stack>
-      <IconButton iconProps={{ iconName: 'Contrast' }} title="Open accessibility options" onClick={toggleHideDialog} />
-      <Dialog
-        hidden={hideDialog}
+      <IconButton iconProps={{ iconName: 'Contrast' }} title="Open accessibility options." onClick={toggleHideDialog} />
+      <Modal
+        isOpen={!hideDialog}
         onDismiss={toggleHideDialog}
-        dialogContentProps={dialogContentProps}
-        modalProps={{ dragOptions, styles: dialogStyles }}
+        dragOptions={dragOptions}
+        styles={dialogStyles}
       >
+        <div className={modalStyles.header}>
+          <h2 className={modalStyles.heading} id={titleId}>Accessibility Options Menu</h2>
+          <IconButton iconProps={{ iconName: 'ChromeClose' }} styles={closeButtonStyles} onClick={toggleHideDialog} title="Close accessibility options." />
+        </div>
+
         <Stack tokens={gapTokens}>
           <FontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
           <ColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
         </Stack>
 
-        <DialogFooter>
+        <div className={modalStyles.footer}>
           <DefaultButton onClick={toggleHideDialog} text="Done" />
-        </DialogFooter>
-      </Dialog>
+        </div>
+      </Modal>
     </Stack>
   );
 };
+
+const theme = getTheme();
+const modalStyles = mergeStyleSets({
+  header: [
+    {
+      flex: '1 1 auto',
+      borderTop: `4px solid ${theme.palette.themePrimary}`,
+      color: theme.palette.neutralPrimary,
+      display: 'flex',
+      alignItems: 'center',
+      fontWeight: FontWeights.semibold,
+      padding: '12px 12px 14px 24px'
+    }
+  ],
+  heading: {
+    color: theme.palette.neutralPrimary,
+    fontWeight: FontWeights.semibold,
+    fontSize: 'inherit',
+    margin: '0'
+  },
+  footer: [
+    {
+      padding: '14px 12px',
+      display: 'flex',
+      alignItems: 'center'
+    }
+  ]
+});
+
+const closeButtonStyles: IButtonStyles = {
+  root: {
+    color: theme.palette.neutralPrimary,
+    marginLeft: 'auto',
+    marginTop: '4px',
+    marginRight: '2px'
+  }
+}
 
 export { OpenA11yComponent };
