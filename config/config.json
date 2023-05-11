@@ -2,17 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "open-a-11-y-application-customizer": {
+    "open-a11y-application-customizer": {
       "components": [
         {
-          "entrypoint": "./lib/extensions/openA11Y/OpenA11YApplicationCustomizer.js",
-          "manifest": "./src/extensions/openA11Y/OpenA11YApplicationCustomizer.manifest.json"
+          "entrypoint": "./lib/extensions/openA11Y/OpenA11yApplicationCustomizer.js",
+          "manifest": "./src/extensions/openA11Y/OpenA11yApplicationCustomizer.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "OpenA11YApplicationCustomizerStrings": "lib/extensions/openA11Y/loc/{locale}.js"
+    "OpenA11yApplicationCustomizerStrings": "lib/extensions/openA11Y/loc/{locale}.js"
   }
 }

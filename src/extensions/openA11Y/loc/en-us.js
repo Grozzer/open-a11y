@@ -1,5 +1,5 @@
-define([], function() {
+define([], function () {
   return {
-    "Title": "OpenA11YApplicationCustomizer"
-  }
+    Title: "OpenA11yApplicationCustomizer",
+  };
 });
