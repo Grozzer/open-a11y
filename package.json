@@ -20,6 +20,7 @@
     "@microsoft/sp-office-ui-fabric-core": "1.13.0",
     "@microsoft/sp-property-pane": "1.13.0",
     "@microsoft/sp-webpart-base": "1.13.0",
+    "gulp-cli": "^2.3.0",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -34,7 +35,7 @@
     "@types/webpack-env": "1.13.1",
     "ajv": "~5.2.2",
     "gulp": "~4.0.2",
-    "gulp-sequence": "1.0.0",
+    "gulp-sequence": "^1.0.0",
     "spfx-uifabric-themes": "^0.8.0"
   }
 }
