@@ -16,7 +16,7 @@ const dragOptions = {
 
 const gapTokens: IStackTokens = {
   childrenGap: 10,
-  padding: 24,
+  padding: 10,
 };
 
 const OpenA11yComponent: React.FC = () => {
@@ -70,7 +70,7 @@ const modalStyles = mergeStyleSets({
       display: 'flex',
       alignItems: 'center',
       fontWeight: FontWeights.semibold,
-      padding: '12px 12px 14px 24px'
+      padding: '12px 12px 6px 24px'
     }
   ],
   heading: {
@@ -80,7 +80,7 @@ const modalStyles = mergeStyleSets({
   },
   mainBody: [
     {
-
+      padding: '0 12px 10px 12px'
     }
   ],
   footer: [
