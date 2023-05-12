@@ -39,7 +39,7 @@ const OpenA11yComponent: React.FC = () => {
 
   return (
     <Stack>
-      <IconButton iconProps={{ iconName: 'Contrast' }} title="Open accessibility options." onClick={toggleHideDialog} />
+      <IconButton iconProps={{ iconName: 'Contrast' }} title="Open accessibility options." onClick={toggleHideDialog} accessKey='1' aria-keyshortcuts='control+alt+1' />
       <Modal
         isOpen={!hideDialog}
         onDismiss={toggleHideDialog}
