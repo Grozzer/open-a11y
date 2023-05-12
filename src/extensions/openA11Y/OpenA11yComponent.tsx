@@ -1,17 +1,9 @@
-import { DefaultButton, IconButton, IStackTokens, IButtonStyles, PrimaryButton, Stack, Popup, Modal, DefaultPalette, FontWeights, getTheme, mergeStyleSets } from '@fluentui/react';
+import { DefaultButton, ActionButton, IconButton, IStackTokens, IButtonStyles, Stack, Modal, FontWeights, getTheme, mergeStyleSets } from '@fluentui/react';
 import { useBoolean, useId } from '@fluentui/react-hooks';
 import { ContextualMenu } from '@fluentui/react/lib/ContextualMenu';
-import { Dialog, DialogFooter, DialogType } from '@fluentui/react/lib/Dialog';
 import React from 'react';
 import { ColourComponent } from './modifiers/ColourComponent';
 import { FontComponent } from './modifiers/FontComponent';
-
-const dialogContentProps = {
-  type: DialogType.normal,
-  title: 'Accessibility by open-a11y',
-  closeButtonAriaLabel: 'Close',
-  subText: 'Would you like to enable a more accessible view?',
-};
 
 const dialogStyles = { main: { maxWidth: 800 } };
 
@@ -24,7 +16,7 @@ const dragOptions = {
 
 const gapTokens: IStackTokens = {
   childrenGap: 10,
-  padding: 12,
+  padding: 24,
 };
 
 const OpenA11yComponent: React.FC = () => {
@@ -39,7 +31,10 @@ const OpenA11yComponent: React.FC = () => {
 
   return (
     <Stack>
-      <IconButton iconProps={{ iconName: 'Contrast' }} title="Open accessibility options." onClick={toggleHideDialog} accessKey='1' aria-keyshortcuts='control+alt+1' />
+      <ActionButton iconProps={{ iconName: 'Contrast' }} title="Open accessibility options menu." onClick={toggleHideDialog} accessKey='1' aria-keyshortcuts='control+alt+1'>
+        Enable accessibility options.
+      </ActionButton>
+
       <Modal
         isOpen={!hideDialog}
         onDismiss={toggleHideDialog}
@@ -52,6 +47,7 @@ const OpenA11yComponent: React.FC = () => {
         </div>
         <div className={modalStyles.mainBody}>
           <Stack tokens={gapTokens}>
+            <p>Below are a range of options that provide accessibility improvements.</p>
             <FontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
             <ColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
           </Stack>
@@ -65,12 +61,12 @@ const OpenA11yComponent: React.FC = () => {
 };
 
 const theme = getTheme();
+
 const modalStyles = mergeStyleSets({
   header: [
     {
       flex: '1 1 auto',
       borderTop: `4px solid ${theme.palette.themePrimary}`,
-      color: theme.palette.neutralPrimary,
       display: 'flex',
       alignItems: 'center',
       fontWeight: FontWeights.semibold,
@@ -78,7 +74,6 @@ const modalStyles = mergeStyleSets({
     }
   ],
   heading: {
-    color: theme.palette.neutralPrimary,
     fontWeight: FontWeights.semibold,
     fontSize: 'inherit',
     margin: '0'
@@ -99,7 +94,6 @@ const modalStyles = mergeStyleSets({
 
 const closeButtonStyles: IButtonStyles = {
   root: {
-    color: theme.palette.neutralPrimary,
     marginLeft: 'auto',
     marginTop: '4px',
     marginRight: '2px'
