@@ -24,10 +24,8 @@ const dragOptions = {
 
 const gapTokens: IStackTokens = {
   childrenGap: 10,
-  padding: 10,
+  padding: 12,
 };
-
-
 
 const OpenA11yComponent: React.FC = () => {
   const [hideDialog, { toggle: toggleHideDialog }] = useBoolean(true);
@@ -46,18 +44,18 @@ const OpenA11yComponent: React.FC = () => {
         isOpen={!hideDialog}
         onDismiss={toggleHideDialog}
         dragOptions={dragOptions}
-        styles={dialogStyles}
+        styles={dialogStyles} forceFocusInsideTrap
       >
         <div className={modalStyles.header}>
           <h2 className={modalStyles.heading} id={titleId}>Accessibility Options Menu</h2>
           <IconButton iconProps={{ iconName: 'ChromeClose' }} styles={closeButtonStyles} onClick={toggleHideDialog} title="Close accessibility options." />
         </div>
-
-        <Stack tokens={gapTokens}>
-          <FontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
-          <ColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
-        </Stack>
-
+        <div className={modalStyles.mainBody}>
+          <Stack tokens={gapTokens}>
+            <FontComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
+            <ColourComponent removeClasses={removeClasses} toggleClass={toggleClass} addClass={addClass} />
+          </Stack>
+        </div>
         <div className={modalStyles.footer}>
           <DefaultButton onClick={toggleHideDialog} text="Done" />
         </div>
@@ -85,6 +83,11 @@ const modalStyles = mergeStyleSets({
     fontSize: 'inherit',
     margin: '0'
   },
+  mainBody: [
+    {
+
+    }
+  ],
   footer: [
     {
       padding: '14px 12px',
